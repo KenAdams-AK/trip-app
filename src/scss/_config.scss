@@ -1,0 +1,36 @@
+body {
+  font-family: $font-roboto;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #201d27;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow-x: hidden;
+
+  main {
+    flex: 1 1 auto;
+
+    & > * {
+      margin-inline: auto;
+    }
+  }
+
+  header,
+  footer {
+    padding-inline: 0.875rem;
+  }
+}
+
+@include media-tablet {
+  #root {
+    header,
+    footer {
+      padding-inline: 1.875rem;
+    }
+  }
+}

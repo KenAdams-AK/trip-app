@@ -1,0 +1,19 @@
+$font-roboto: "Roboto", sans-serif;
+
+$clr-green-primary: #29a643;
+$clr-red-primary: #d51820;
+
+$screen-tablet: 768px;
+$screen-desktop: 1024px;
+
+@mixin media-tablet {
+  @media (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (min-width: $screen-desktop) {
+    @content;
+  }
+}
