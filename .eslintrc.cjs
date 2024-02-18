@@ -44,6 +44,7 @@ module.exports = {
     "react/require-default-props": ["off"],
     "react-hooks/exhaustive-deps": ["warn"],
     "react/button-has-type": ["warn"],
+    "@typescript-eslint/no-unused-vars": ["warn"],
     "no-param-reassign": ["error", { props: false }],
     "no-shadow": ["warn"],
     "import/prefer-default-export": ["off"],

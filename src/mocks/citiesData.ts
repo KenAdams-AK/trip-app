@@ -11,63 +11,43 @@ import tokyo from "@/assets/cities-images/tokyo.jpg";
 
 export const citiesData = [
   {
-    id: "berlin",
-    name: "Berlin",
-    country: "Germany",
+    city: "Berlin",
     image: berlin,
   },
   {
-    id: "dublin",
-    name: "Dublin",
-    country: "Ireland",
+    city: "Dublin",
     image: dublin,
   },
   {
-    id: "kyiv",
-    name: "Kyiv",
-    country: "Ukraine",
+    city: "Kyiv",
     image: kyiv,
   },
   {
-    id: "lisbon",
-    name: "Lisbon",
-    country: "Portugal",
+    city: "Lisbon",
     image: lisbon,
   },
   {
-    id: "london",
-    name: "London",
-    country: "United Kingdom",
+    city: "London",
     image: london,
   },
   {
-    id: "madrid",
-    name: "Madrid",
-    country: "Spain",
+    city: "Madrid",
     image: madrid,
   },
   {
-    id: "oslo",
-    name: "Oslo",
-    country: "Norway",
+    city: "Oslo",
     image: oslo,
   },
   {
-    id: "paris",
-    name: "Paris",
-    country: "France",
+    city: "Paris",
     image: paris,
   },
   {
-    id: "rome",
-    name: "Rome",
-    country: "Italy",
+    city: "Rome",
     image: rome,
   },
   {
-    id: "tokyo",
-    name: "Tokyo",
-    country: "Japan",
+    city: "Tokyo",
     image: tokyo,
   },
 ] as const;

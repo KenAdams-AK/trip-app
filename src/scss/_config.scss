@@ -6,6 +6,10 @@ body {
   background-color: #201d27;
 }
 
+.modal-active {
+  overflow: hidden;
+}
+
 #root {
   display: flex;
   flex-direction: column;
