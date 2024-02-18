@@ -5,5 +5,5 @@ type CityForecastProps = {
 };
 
 export function CityForecast({ data }: CityForecastProps) {
-  return <div>CityForecast {}</div>;
+  return <section className="city-forecast">CityForecast {}</section>;
 }

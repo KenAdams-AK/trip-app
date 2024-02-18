@@ -3,8 +3,8 @@ import { Trip } from "@/models/trip";
 
 import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
 
-import { AddButton } from "@/components/AddButton/AddButton";
-import { TripCard } from "@/components/TripCard/TripCard";
+import { AddButton } from "@/layout/AddButton/AddButton";
+import { TripCard } from "@/layout/TripCard/TripCard";
 
 import "./TripsList.scss";
 
