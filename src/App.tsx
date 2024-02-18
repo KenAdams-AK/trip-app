@@ -1,7 +1,7 @@
 function App() {
   return (
     <main>
-      <h1>Trip app: {import.meta.env.VITE_FORECAST_API_KEY}</h1>
+      <h1>Trip app</h1>
     </main>
   );
 }
