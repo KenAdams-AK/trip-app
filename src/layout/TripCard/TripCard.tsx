@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
+import { formatDate } from "@/helpers/formatDate";
+
 import { Trip } from "@/models/trip";
 
 import "./TripCard.scss";
@@ -25,7 +27,7 @@ export function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
       <div className="trip-card__info">
         <h2>{trip.destination.city}</h2>
         <p>
-          {trip.departureDate} &minus; {trip.returnDate}
+          {formatDate(trip.departureDate)} &minus; {formatDate(trip.returnDate)}
         </p>
       </div>
     </div>
