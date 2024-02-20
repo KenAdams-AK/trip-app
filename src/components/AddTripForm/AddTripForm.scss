@@ -1,0 +1,58 @@
+@import "../../scss/shared";
+
+.add-trip-form .form {
+  padding-inline: 1rem;
+  max-width: 28.375rem;
+  margin-inline: auto;
+
+  display: grid;
+  place-items: center;
+  gap: 1.875rem;
+  padding-block: 1.625rem;
+
+  &__fieldset {
+    display: grid;
+    width: 100%;
+    gap: 0.875rem;
+    padding: 1rem;
+
+    label {
+      display: grid;
+      align-content: start;
+      gap: 0.625rem;
+
+      input {
+        color: #000;
+        height: 2.5rem;
+        padding: 0.5rem;
+        &:focus {
+          outline-style: solid;
+          outline-color: $clr-green-primary;
+        }
+      }
+      // fix placeholder color
+      input[type="date"]:invalid::-webkit-datetime-edit {
+        color: #999;
+      }
+      input:focus.invalid {
+        outline-color: $clr-red-primary;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+@include media-tablet {
+  .registration-form {
+    padding-inline: 0;
+    .form {
+      padding-top: 2.5rem;
+      &__fieldset {
+        gap: 1.875rem;
+      }
+    }
+  }
+}

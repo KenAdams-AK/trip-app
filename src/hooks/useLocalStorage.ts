@@ -2,13 +2,13 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type Item<T> = {
   value: T;
-  expiry: number;
+  expiry: number | null;
 };
 
 export function useLocalStorage<T>(
   key: string,
   initialValue: T | (() => T),
-  timeToLive: number = 3600, // must be in seconds, 1 hour by default
+  timeToLive?: number, // must be in seconds
 ): [T, Dispatch<SetStateAction<T>>] {
   const [value, setValue] = useState<T>(() => {
     let jsonValue: string | null = null;
@@ -39,7 +39,7 @@ export function useLocalStorage<T>(
   useEffect(() => {
     const item: Item<T> = {
       value,
-      expiry: Date.now() + timeToLive * 1000,
+      expiry: timeToLive ? Date.now() + timeToLive * 1000 : null,
     };
 
     localStorage.setItem(key, JSON.stringify(item));

@@ -16,6 +16,8 @@
     "^react-redux",
     "^@reduxjs/toolkit",
     "<THIRD_PARTY_MODULES>",
+    "^@/mocks/(.*)$",
+    "^@/models/(.*)$",
     "^@/hooks/(.*)$",
     "^@/components/(.*)$",
     "^@/layout/(.*)$",

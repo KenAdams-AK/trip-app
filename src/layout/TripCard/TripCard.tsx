@@ -1,14 +1,24 @@
+import { Dispatch, SetStateAction } from "react";
+
 import { Trip } from "@/models/trip";
 
 import "./TripCard.scss";
 
 type TripCardProps = {
   trip: Trip;
+  isSelected: boolean;
+  setSelectedTrip: Dispatch<SetStateAction<Trip>>;
 };
 
-export function TripCard({ trip }: TripCardProps) {
+export function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
   return (
-    <div className="trip-card active">
+    <div
+      className={`trip-card ${isSelected ? "active" : ""}`}
+      role="button"
+      onClick={() => setSelectedTrip(trip)}
+      onKeyDown={() => {}}
+      tabIndex={0}
+    >
       <div className="trip-card__image">
         <img src={trip.destination.image} alt={trip.destination.city} />
       </div>

@@ -9,45 +9,17 @@ import paris from "@/assets/cities-images/paris.jpg";
 import rome from "@/assets/cities-images/rome.jpg";
 import tokyo from "@/assets/cities-images/tokyo.jpg";
 
-export const citiesData = [
-  {
-    city: "Berlin",
-    image: berlin,
-  },
-  {
-    city: "Dublin",
-    image: dublin,
-  },
-  {
-    city: "Kyiv",
-    image: kyiv,
-  },
-  {
-    city: "Lisbon",
-    image: lisbon,
-  },
-  {
-    city: "London",
-    image: london,
-  },
-  {
-    city: "Madrid",
-    image: madrid,
-  },
-  {
-    city: "Oslo",
-    image: oslo,
-  },
-  {
-    city: "Paris",
-    image: paris,
-  },
-  {
-    city: "Rome",
-    image: rome,
-  },
-  {
-    city: "Tokyo",
-    image: tokyo,
-  },
-] as const;
+export const citiesData = {
+  Berlin: berlin,
+  Dublin: dublin,
+  Kyiv: kyiv,
+  Lisbon: lisbon,
+  London: london,
+  Madrid: madrid,
+  Oslo: oslo,
+  Paris: paris,
+  Rome: rome,
+  Tokyo: tokyo,
+} as const;
+
+export type Cities = keyof typeof citiesData;

@@ -1,14 +1,16 @@
-import { MouseEventHandler, ReactNode, useEffect, useMemo } from "react";
+import { ReactNode, useCallback, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
+
+import { useModalContext } from "@/hooks/useModalContext";
 
 import "./Modal.scss";
 
 type ModalProps = {
-  handleClose: MouseEventHandler<HTMLElement>;
   children: ReactNode;
 };
 
-export function Modal({ handleClose, children }: ModalProps) {
+export function Modal({ children }: ModalProps) {
+  const { isOpen, setIsOpen } = useModalContext();
   const containerElement = useMemo(() => document.querySelector("#modal"), []);
   const bodyElement = useMemo(() => document.querySelector("body"), []);
 
@@ -16,11 +18,18 @@ export function Modal({ handleClose, children }: ModalProps) {
     if (bodyElement === null) {
       return undefined;
     }
-
     bodyElement.classList.add("modal-active");
 
     return () => bodyElement.classList.remove("modal-active");
   }, [bodyElement]);
+
+  const handleClose = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
+
+  if (!isOpen || containerElement === null) {
+    return null;
+  }
 
   return ReactDOM.createPortal(
     <div className="modal__overlay">

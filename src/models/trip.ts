@@ -1,3 +1,5 @@
+import { Cities } from "@/mocks/citiesData";
+
 export type Trip = {
   id: number;
   destination: Destination;
@@ -6,6 +8,6 @@ export type Trip = {
 };
 
 type Destination = {
-  city: string;
+  city: Cities;
   image: string;
 };
