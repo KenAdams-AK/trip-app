@@ -5,6 +5,7 @@ import { Trip } from "@/models/trip";
 import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
 import { useModalContext } from "@/hooks/useModalContext";
 
+import { ScrollButton } from "@/layout/ScrollButton/ScrollButton";
 import { MemoizedTripCard } from "@/layout/TripCard/TripCard";
 
 import "./TripsList.scss";
@@ -15,21 +16,35 @@ type TripsListProps = {
   setSelectedTrip: Dispatch<SetStateAction<Trip>>;
 };
 
+const SCROLL_OFFSET = 100;
+
 export function TripsList({
   trips,
   selectedTrip,
   setSelectedTrip,
 }: TripsListProps) {
   const { setIsOpen } = useModalContext();
-  const scrollRef = useHorizontalScroll<HTMLDivElement>();
+  const listRef = useHorizontalScroll<HTMLDivElement>(); // scroll on mouse wheel
 
   const openModal = () => {
     setIsOpen(true);
   };
 
+  const scroll = (scrollOffset: number) => {
+    if (!listRef.current) {
+      return;
+    }
+    listRef.current.scrollLeft += scrollOffset;
+  };
+
   return (
     <div className="trips-list">
-      <div className="trips-list__list" ref={scrollRef}>
+      <ScrollButton
+        type="left"
+        handleScroll={scroll}
+        scrollOffset={SCROLL_OFFSET}
+      />
+      <div className="trips-list__list" ref={listRef}>
         {trips.map((trip) => (
           <MemoizedTripCard
             key={trip.id}
@@ -39,6 +54,11 @@ export function TripsList({
           />
         ))}
       </div>
+      <ScrollButton
+        type="right"
+        handleScroll={scroll}
+        scrollOffset={SCROLL_OFFSET}
+      />
 
       <button
         className="trips-list__add-button"

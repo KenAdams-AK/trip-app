@@ -1,0 +1,18 @@
+@import "../../scss/shared";
+
+.search-bar {
+  padding-block: 2rem;
+  input {
+    height: 2.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+    color: $clr-grey-primary;
+    background-color: inherit;
+    border: 1px solid $clr-grey-primary;
+    border-radius: 0.2rem;
+    background: url(../../assets/icons/search.png) no-repeat 0.5rem / 1.5rem;
+    &:focus {
+      outline-style: solid;
+      outline-color: $clr-green-primary;
+    }
+  }
+}

@@ -1,10 +1,8 @@
 import { useState } from "react";
 
-import { defaultTrip } from "@/mocks/defaultTrip";
-
 import { Trip } from "@/models/trip";
 
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useTrips } from "@/hooks/useTrips";
 
 import { AddTripForm } from "@/components/AddTripForm/AddTripForm";
 import { CityForecast } from "@/components/CityForecast/CityForecast";
@@ -16,7 +14,7 @@ import { TripsList } from "@/components/TripsList/TripsList";
 import "./HomePage.scss";
 
 export function HomePage() {
-  const [trips, setTrips] = useLocalStorage<Trip[]>("trips", [defaultTrip]);
+  const { filteredTrips: trips, setTrips } = useTrips();
   const [selectedTrip, setSelectedTrip] = useState<Trip>(trips[0]);
 
   return (
@@ -24,15 +22,15 @@ export function HomePage() {
       <section className="trips-info">
         <h1>Weather Forecast</h1>
         <SearchBar />
-        {/* <input type="search" placeholder="Search your trip" /> */}
         <TripsList
           trips={trips}
           selectedTrip={selectedTrip}
           setSelectedTrip={setSelectedTrip}
         />
         <TripForecast data="" />
-        <CityForecast data="" />
       </section>
+
+      <CityForecast data="" />
 
       <Modal>
         <AddTripForm trips={trips} setTrips={setTrips} />
