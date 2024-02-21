@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { HomePage } from "@/pages/HomePage/HomePage";
