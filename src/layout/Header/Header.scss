@@ -7,10 +7,31 @@
 
   &__nav ul {
     display: flex;
+    align-items: center;
     gap: 2rem;
 
     .active {
       color: #888;
+      text-decoration: underline;
+    }
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &__image {
+      width: 2rem;
+      height: 2rem;
+      clip-path: circle();
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

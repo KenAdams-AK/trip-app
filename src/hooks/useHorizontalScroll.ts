@@ -17,6 +17,7 @@ export function useHorizontalScroll<T extends HTMLElement>() {
     };
 
     el.addEventListener("wheel", onWheel);
+
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 

@@ -25,6 +25,12 @@ export function TripsList({
 }: TripsListProps) {
   const { setIsOpen } = useModalContext();
   const listRef = useHorizontalScroll<HTMLDivElement>(); // scroll on mouse wheel
+  // const isScrollable = useMemo(() => {
+  //   return (
+  //     listRef.current &&
+  //     listRef.current.scrollWidth > listRef.current.clientWidth
+  //   );
+  // }, [trips.length, listRef]);
 
   const openModal = () => {
     setIsOpen(true);
@@ -41,6 +47,8 @@ export function TripsList({
     <div className="trips-list">
       <ScrollButton
         type="left"
+        // isHidden={!isScrollable}
+        isHidden
         handleScroll={scroll}
         scrollOffset={SCROLL_OFFSET}
       />
@@ -56,6 +64,8 @@ export function TripsList({
       </div>
       <ScrollButton
         type="right"
+        // isHidden={!isScrollable}
+        isHidden
         handleScroll={scroll}
         scrollOffset={SCROLL_OFFSET}
       />

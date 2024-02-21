@@ -2,19 +2,20 @@ import "./ScrollButton.scss";
 
 type ScrollButtonProps = {
   type: "left" | "right";
-  // isHidden: boolean;
+  isHidden: boolean;
   scrollOffset: number;
   handleScroll: (scrollOffset: number) => void;
 };
 
 export function ScrollButton({
   type,
+  isHidden,
   scrollOffset,
   handleScroll,
 }: ScrollButtonProps) {
-  // if (isHidden) {
-  //   return null;
-  // }
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <button
