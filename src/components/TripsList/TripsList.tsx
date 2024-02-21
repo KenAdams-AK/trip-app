@@ -5,7 +5,7 @@ import { Trip } from "@/models/trip";
 import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
 import { useModalContext } from "@/hooks/useModalContext";
 
-import { TripCard } from "@/layout/TripCard/TripCard";
+import { MemoizedTripCard } from "@/layout/TripCard/TripCard";
 
 import "./TripsList.scss";
 
@@ -31,7 +31,7 @@ export function TripsList({
     <div className="trips-list">
       <div className="trips-list__list" ref={scrollRef}>
         {trips.map((trip) => (
-          <TripCard
+          <MemoizedTripCard
             key={trip.id}
             trip={trip}
             isSelected={trip.id === selectedTrip.id}

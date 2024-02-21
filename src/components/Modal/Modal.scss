@@ -1,42 +1,15 @@
 .modal {
+  display: grid;
+  place-items: center;
+
   &__overlay {
-    display: block;
+    display: grid;
+    place-items: center;
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
     backdrop-filter: blur(0.1rem);
     background-color: rgba($color: #000000, $alpha: 0.8);
 
     z-index: 1;
-  }
-
-  &__body {
-    position: fixed;
-    top: 5%;
-    left: 50%;
-    width: 65%;
-    transform: translateX(-50%);
-    color: #fff;
-    border-radius: 0.25rem;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    z-index: 2;
-  }
-
-  &__close-button {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    opacity: 0.75;
-    font-size: 1.5rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 100%;
-    color: #666;
-    background-color: #333;
-    z-index: 2;
   }
 }

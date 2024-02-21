@@ -1,8 +1,6 @@
 import { Dispatch, SetStateAction, useCallback } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Cities, citiesData } from "@/mocks/citiesData";
@@ -29,7 +27,6 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
     handleSubmit,
     formState: { errors, isSubmitting, isValid },
     setError,
-    control,
   } = useForm<FormFields>({
     mode: "all",
     reValidateMode: "onChange",
@@ -64,11 +61,27 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
   }, [setIsOpen]);
 
   return (
-    <>
-      <form className="add-trip-form form" onSubmit={handleSubmit(onSubmit)}>
+    <div className="add-trip-form">
+      <div className="add-trip-form__head">
+        <h2 className="add-trip-form__title">Create trip</h2>
+        <button
+          className="add-trip-form__close-button"
+          type="button"
+          onClick={closeModal}
+        >
+          &times;
+        </button>
+      </div>
+
+      <hr />
+
+      <form
+        className="add-trip-form__form form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <fieldset className="form__fieldset">
           <label htmlFor="destination">
-            Destination
+            City
             <select
               id="destination"
               className={errors.destination ? "invalid" : ""}
@@ -88,11 +101,10 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
           </label>
 
           <label htmlFor="departureDate">
-            Departure Date
+            Start Date
             <input
               className={errors.departureDate ? "invalid" : ""}
               type="date"
-              placeholder="Choose a start date"
               required // should be "required" to fix placeholder color
               aria-invalid={errors.departureDate ? "true" : "false"}
               {...register("departureDate")}
@@ -103,11 +115,10 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
           </label>
 
           <label htmlFor="returnDate">
-            Return Date
+            End Date
             <input
               className={errors.returnDate ? "invalid" : ""}
               type="date"
-              placeholder="Choose an end date"
               required // SAB
               aria-invalid={errors.returnDate ? "true" : "false"}
               {...register("returnDate")}
@@ -118,7 +129,9 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
           </label>
         </fieldset>
 
-        <div className="form__control">
+        <hr />
+
+        <div className="form__controls">
           <button
             className="form__button form__button--cancel"
             type="button"
@@ -132,13 +145,12 @@ export function AddTripForm({ trips, setTrips }: AddTripFormProps) {
             type="submit"
             disabled={!isValid || isSubmitting}
           >
-            {isSubmitting ? "Processing..." : "Save Trip"}
+            {isSubmitting ? "Processing..." : "Save"}
           </button>
         </div>
 
         {errors.root && <FormError error={errors.root.message ?? ""} />}
       </form>
-      <DevTool control={control} />
-    </>
+    </div>
   );
 }

@@ -32,12 +32,3 @@ body {
     padding-inline: 0.875rem;
   }
 }
-
-@include media-tablet {
-  #root {
-    header,
-    footer {
-      padding-inline: 1.875rem;
-    }
-  }
-}

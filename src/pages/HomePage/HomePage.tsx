@@ -10,9 +10,8 @@ import { AddTripForm } from "@/components/AddTripForm/AddTripForm";
 import { CityForecast } from "@/components/CityForecast/CityForecast";
 import { Modal } from "@/components/Modal/Modal";
 import { SearchBar } from "@/components/SearchBar/SearchBar";
+import { TripForecast } from "@/components/TripForecast/TripForecast";
 import { TripsList } from "@/components/TripsList/TripsList";
-
-import { TripForecast } from "@/layout/TripForecast/TripForecast";
 
 import "./HomePage.scss";
 

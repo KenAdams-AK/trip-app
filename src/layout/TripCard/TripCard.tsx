@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, memo } from "react";
 
 import { formatDate } from "@/helpers/formatDate";
 
@@ -12,7 +12,7 @@ type TripCardProps = {
   setSelectedTrip: Dispatch<SetStateAction<Trip>>;
 };
 
-export function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
+function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
   return (
     <div
       className={`trip-card ${isSelected ? "active" : ""}`}
@@ -34,8 +34,11 @@ export function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
   );
 }
 
-// function areEqual(prevProps: TripCardProps, nextProps: TripCardProps): boolean {
-//   return prevProps.trip === nextProps.trip;
-// }
+function areEqual(prevProps: TripCardProps, nextProps: TripCardProps): boolean {
+  return (
+    prevProps.trip === nextProps.trip &&
+    prevProps.isSelected === nextProps.isSelected
+  );
+}
 
-// export default memo(TripCard, areEqual);
+export const MemoizedTripCard = memo(TripCard, areEqual);
