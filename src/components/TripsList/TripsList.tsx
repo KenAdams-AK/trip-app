@@ -25,12 +25,6 @@ export function TripsList({
 }: TripsListProps) {
   const { setIsOpen } = useModalContext();
   const listRef = useHorizontalScroll<HTMLDivElement>(); // scroll on mouse wheel
-  // const isScrollable = useMemo(() => {
-  //   return (
-  //     listRef.current &&
-  //     listRef.current.scrollWidth > listRef.current.clientWidth
-  //   );
-  // }, [trips.length, listRef]);
 
   const openModal = () => {
     setIsOpen(true);

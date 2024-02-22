@@ -1,0 +1,24 @@
+.trip-forecast {
+  padding-block: 1rem;
+
+  &__list {
+    display: flex;
+    gap: 2rem;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__day {
+    display: grid;
+    place-items: center;
+    gap: 0.5rem;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}

@@ -1,3 +1,5 @@
+@import "../../scss/shared";
+
 .trip-card {
   &__image {
     width: 12.5rem;
@@ -15,5 +17,5 @@
 }
 
 .trip-card.active {
-  border: 1px solid #408cba;
+  border: 1px solid $clr-blue-primary;
 }

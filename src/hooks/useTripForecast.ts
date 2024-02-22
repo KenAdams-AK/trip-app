@@ -26,7 +26,7 @@ export function useTripForecast(tripData: Trip) {
       return {
         address,
         days: days.map((day) => ({
-          timestamp: day.datetimeEpoch,
+          datetime: day.datetime,
           tempMin: day.tempmin,
           tempMax: day.tempmax,
           icon: day.icon,

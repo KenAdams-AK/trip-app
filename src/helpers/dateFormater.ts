@@ -1,10 +1,10 @@
-export function formatDate(date: string | number | Date): string {
+export function formatDate(date: string): string {
   return new Intl.DateTimeFormat("ukr", {
     dateStyle: "short",
   }).format(new Date(date));
 }
 
-export function getWeekday(date: string | number | Date): string {
+export function getWeekday(date: string): string {
   return new Intl.DateTimeFormat("en-US", {
     weekday: "long",
   }).format(new Date(date));
