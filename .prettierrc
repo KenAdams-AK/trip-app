@@ -19,6 +19,7 @@
     "^@/mocks/(.*)$",
     "^@/models/(.*)$",
     "^@/hooks/(.*)$",
+    "^@/pages/(.*)$",
     "^@/components/(.*)$",
     "^@/layout/(.*)$",
     "^@/assets/(.*)$",

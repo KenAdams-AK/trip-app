@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import { useCurrentUser } from "@/hooks/useCurrentUser";
+
 import { HomePage } from "@/pages/HomePage/HomePage";
 import { LoginPage } from "@/pages/LoginPage/LoginPage";
-
-import { useCurrentUser } from "@/hooks/useCurrentUser";
 
 import { Footer } from "@/layout/Footer/Footer";
 import { Header } from "@/layout/Header/Header";

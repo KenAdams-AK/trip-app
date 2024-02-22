@@ -27,10 +27,13 @@ export function HomePage() {
           selectedTrip={selectedTrip}
           setSelectedTrip={setSelectedTrip}
         />
-        <TripForecast data="" />
+        <TripForecast tripData={selectedTrip} />
       </section>
 
-      <CityForecast data="" />
+      <CityForecast
+        city={selectedTrip.destination.city}
+        departureDate={selectedTrip.departureDate}
+      />
 
       <Modal>
         <AddTripForm trips={trips} setTrips={setTrips} />

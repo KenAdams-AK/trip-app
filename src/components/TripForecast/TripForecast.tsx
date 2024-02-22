@@ -1,9 +1,22 @@
+import { Trip } from "@/models/trip";
+
+import { useTripForecast } from "@/hooks/useTripForecast";
+
 import "./TripForecast.scss";
 
 type TripForecastProps = {
-  data: string; // replace 'string' with the correct type
+  tripData: Trip;
 };
 
-export function TripForecast({ data }: TripForecastProps) {
-  return <div>TripForecast {data}</div>;
+export function TripForecast({ tripData }: TripForecastProps) {
+  const { data: forecast, isLoading, isError } = useTripForecast(tripData);
+
+  if (isLoading) return <section className="trip-forecast">Loading...</section>;
+
+  if (isError || !forecast)
+    return (
+      <section className="trip-forecast">Failed to fetch forecast.</section>
+    );
+
+  return <div>TripForecast</div>;
 }
