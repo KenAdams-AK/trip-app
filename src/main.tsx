@@ -7,8 +7,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import { ModalProvider } from "@/context/modalContext";
+
 import App from "./App";
-import { ModalProvider } from "./context/modalContext";
 
 import "./scss/styles.scss";
 

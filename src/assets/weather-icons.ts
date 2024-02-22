@@ -46,4 +46,4 @@ export const WEATHER_ICONS = {
   wind,
 } as const;
 
-export type WeatherIcon = keyof typeof weatherIcons;
+export type WeatherIcon = keyof typeof WEATHER_ICONS;

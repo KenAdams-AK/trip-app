@@ -15,10 +15,7 @@ type TripForecastProps = {
 
 export function TripForecast({ tripData }: TripForecastProps) {
   const { data: forecast, isLoading, isError } = useTripForecast(tripData);
-  const listRef = useHorizontalScroll<HTMLUListElement>();
-
-  // TODO: fix null ref
-  // console.log(listRef.current);
+  const listRef = useHorizontalScroll<HTMLUListElement>(!forecast?.days.length);
 
   if (isLoading) return <div className="trip-forecast">Loading...</div>;
 

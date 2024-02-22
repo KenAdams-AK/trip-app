@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 
-export function useHorizontalScroll<T extends HTMLElement>() {
+export function useHorizontalScroll<T extends HTMLElement>(
+  shouldUpdateRef?: boolean,
+) {
   const elRef = useRef<T | null>(null);
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export function useHorizontalScroll<T extends HTMLElement>() {
     el.addEventListener("wheel", onWheel);
 
     return () => el.removeEventListener("wheel", onWheel);
-  }, []);
+  }, [shouldUpdateRef]);
 
   return elRef;
 }

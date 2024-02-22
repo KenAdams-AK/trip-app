@@ -2,12 +2,11 @@ import "./FormError.scss";
 
 type FormErrorProps = {
   error: string;
-  modifier?: "valid" | "invalid";
 };
 
-export function FormError({ error, modifier = "invalid" }: FormErrorProps) {
+export function FormError({ error }: FormErrorProps) {
   return (
-    <span role="alert" className={`form-error form-error--${modifier}`}>
+    <span role="alert" className="form-error form-error--invalid">
       {error}
     </span>
   );
