@@ -1,9 +1,9 @@
 .trip-forecast {
-  padding-block: 1rem;
+  padding-top: 1rem;
 
   &__list {
     display: flex;
-    gap: 2rem;
+    gap: 1.2rem;
     overflow-x: scroll;
 
     &::-webkit-scrollbar {

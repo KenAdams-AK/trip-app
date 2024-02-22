@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 export function useHorizontalScroll<T extends HTMLElement>(
   shouldUpdateRef?: boolean,
-) {
+): MutableRefObject<T | null> {
   const elRef = useRef<T | null>(null);
 
   useEffect(() => {

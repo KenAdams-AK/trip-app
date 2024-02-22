@@ -3,13 +3,14 @@
 .city-forecast {
   font-size: 1.2rem;
   text-align: center;
+  min-width: 22rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
-  padding: 1rem 2rem;
+  padding: 1rem;
   margin-left: auto;
   background-color: $clr-grey-primary;
 

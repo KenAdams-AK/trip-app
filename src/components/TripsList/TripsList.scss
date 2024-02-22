@@ -3,12 +3,12 @@
 .trips-list {
   display: flex;
   align-items: start;
-  gap: 2rem;
+  gap: 1.5rem;
   padding-block: 1rem;
 
   &__list {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     padding-bottom: 1rem;
     overflow-x: scroll;
 

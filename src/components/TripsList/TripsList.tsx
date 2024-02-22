@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useLayoutEffect, useState } from "react";
 
 import { Trip } from "@/models/trip";
 
@@ -25,6 +25,16 @@ export function TripsList({
 }: TripsListProps) {
   const { setIsOpen } = useModalContext();
   const listRef = useHorizontalScroll<HTMLDivElement>(); // scroll on mouse wheel
+  const [hasHorizontalScroll, setHasHorizontalScroll] = useState(false);
+
+  useLayoutEffect(() => {
+    if (!listRef.current) {
+      return;
+    }
+
+    const { scrollWidth, clientWidth } = listRef.current;
+    setHasHorizontalScroll(scrollWidth > clientWidth);
+  }, [listRef, trips]);
 
   const openModal = () => {
     setIsOpen(true);
@@ -41,8 +51,7 @@ export function TripsList({
     <div className="trips-list">
       <ScrollButton
         type="left"
-        // isHidden={!isScrollable}
-        isHidden
+        isHidden={!hasHorizontalScroll}
         handleScroll={scroll}
         scrollOffset={SCROLL_OFFSET}
       />
@@ -58,8 +67,7 @@ export function TripsList({
       </div>
       <ScrollButton
         type="right"
-        // isHidden={!isScrollable}
-        isHidden
+        isHidden={!hasHorizontalScroll}
         handleScroll={scroll}
         scrollOffset={SCROLL_OFFSET}
       />

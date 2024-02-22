@@ -15,7 +15,7 @@ type TripForecastProps = {
 
 export function TripForecast({ tripData }: TripForecastProps) {
   const { data: forecast, isLoading, isError } = useTripForecast(tripData);
-  const listRef = useHorizontalScroll<HTMLUListElement>(!forecast?.days.length);
+  const listRef = useHorizontalScroll<HTMLUListElement>(!forecast?.days.length); // scroll on mouse wheel
 
   if (isLoading) return <div className="trip-forecast">Loading...</div>;
 
