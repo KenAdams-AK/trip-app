@@ -6,7 +6,7 @@
   min-width: 28rem;
   padding: 2rem;
   color: #000;
-  background-color: #d4d4d4;
+  background-color: #f0f0f0;
   box-shadow: 0 0 10px 3px #fff;
   border-radius: 0.5rem;
 
@@ -62,7 +62,7 @@
         }
 
         ::-webkit-calendar-picker-indicator {
-          filter: invert(1);
+          filter: invert(0.2);
         }
 
         input:focus.invalid,
