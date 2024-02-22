@@ -15,13 +15,13 @@ export function Modal({ children }: ModalProps) {
   const bodyElement = useMemo(() => document.querySelector("body"), []);
 
   useEffect(() => {
-    if (bodyElement === null) {
+    if (!isOpen || bodyElement === null) {
       return undefined;
     }
     bodyElement.classList.add("modal-active");
 
     return () => bodyElement.classList.remove("modal-active");
-  }, [bodyElement]);
+  }, [bodyElement, isOpen]);
 
   if (!isOpen || containerElement === null) {
     return null;

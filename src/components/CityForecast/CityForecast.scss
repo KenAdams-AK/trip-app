@@ -1,8 +1,42 @@
 @import "../../scss/shared";
 
 .city-forecast {
-  height: 100%;
-  align-self: center;
+  font-size: 1.2rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
   margin-left: auto;
   background-color: $clr-grey-primary;
+
+  &__city {
+    margin-bottom: 2rem;
+  }
+}
+
+.city-forecast .info {
+  &__weekday {
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__weather {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.5rem;
+
+    sup {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+  }
 }

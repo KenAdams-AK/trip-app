@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, memo } from "react";
 
-import { formatDate } from "@/helpers/formatDate";
+import { formatDate } from "@/helpers/dateFormater";
 
 import { Trip } from "@/models/trip";
 

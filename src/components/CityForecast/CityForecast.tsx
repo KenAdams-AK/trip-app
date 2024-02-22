@@ -1,6 +1,10 @@
+import { getWeekday } from "@/helpers/dateFormater";
+
 import { useCityForecast } from "@/hooks/useCityForecast";
 
 import { WEATHER_ICONS } from "@/assets/weather-icons";
+
+import { CountdownTimer } from "../CountdownTimer/CountdownTimer";
 
 import "./CityForecast.scss";
 
@@ -21,16 +25,24 @@ export function CityForecast({ city, departureDate }: CityForecastProps) {
 
   return (
     <section className="city-forecast">
-      <div className="city-forecast__info">
-        <div className="city-forecast__icon">
-          <img
-            src={WEATHER_ICONS[forecast.icon as keyof typeof WEATHER_ICONS]}
-            alt={forecast.icon}
-          />
+      <div className="city-forecast__info info">
+        <div className="info__weekday">{getWeekday(forecast.datetime)}</div>
+        <div className="info__weather">
+          <div className="info__icon">
+            <img
+              src={WEATHER_ICONS[forecast.icon as keyof typeof WEATHER_ICONS]}
+              alt={forecast.icon}
+            />
+          </div>
+          <div className="info__temp">
+            {Math.round(forecast.temp)}
+            <sup>°C</sup>
+          </div>
         </div>
-        <div className="forecastData__temp">{forecast.temp}</div>
       </div>
-      <h3 className="city-forecast__city">{city}</h3>
+      <div className="city-forecast__city">{city}</div>
+
+      <CountdownTimer targetDate={departureDate} />
     </section>
   );
 }
