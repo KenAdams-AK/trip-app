@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import { AuthProvider } from "@/context/authContext";
 import { ModalProvider } from "@/context/modalContext";
 
 import App from "./App";
@@ -20,11 +21,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <ModalProvider>
-          <GoogleOAuthProvider clientId={clientId}>
-            <App />
-          </GoogleOAuthProvider>
-        </ModalProvider>
+        <AuthProvider>
+          <ModalProvider>
+            <GoogleOAuthProvider clientId={clientId}>
+              <App />
+            </GoogleOAuthProvider>
+          </ModalProvider>
+        </AuthProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>

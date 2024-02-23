@@ -1,15 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 
-import { User } from "@/models/user";
+import { useAuthContext } from "@/hooks/useAuthContext";
 
 import "./Header.scss";
 
-type HeaderProps = {
-  user: User | null;
-  handleLogout: () => void;
-};
+export function Header() {
+  const { user, handleLogout } = useAuthContext();
 
-export function Header({ user, handleLogout }: HeaderProps) {
   return (
     <header className="header">
       <Link to="/" className="header__logo">

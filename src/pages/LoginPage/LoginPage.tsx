@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { GoogleLogin } from "@react-oauth/google";
@@ -6,13 +5,12 @@ import { jwtDecode } from "jwt-decode";
 
 import { User } from "@/models/user";
 
+import { useAuthContext } from "@/hooks/useAuthContext";
+
 import "./LoginPage.scss";
 
-type LoginPageProps = {
-  setUser: Dispatch<SetStateAction<User | null>>;
-};
-
-export function LoginPage({ setUser }: LoginPageProps) {
+export function LoginPage() {
+  const { setUser } = useAuthContext();
   const navigate = useNavigate();
 
   return (
