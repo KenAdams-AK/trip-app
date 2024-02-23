@@ -5,10 +5,14 @@ import { defaultTrip } from "@/mocks/defaultTrip";
 
 import { Trip } from "@/models/trip";
 
+import { localStorageKeys } from "@/constants/storageKeys";
+
 import { useLocalStorage } from "./useLocalStorage";
 
 export function useTrips() {
-  const [trips, setTrips] = useLocalStorage<Trip[]>("trips", [defaultTrip]);
+  const [trips, setTrips] = useLocalStorage<Trip[]>(localStorageKeys.trips, [
+    defaultTrip,
+  ]);
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query");
 
@@ -32,5 +36,5 @@ export function useTrips() {
   return {
     filteredTrips,
     setTrips,
-  };
+  } as const;
 }

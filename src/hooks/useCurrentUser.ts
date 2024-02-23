@@ -4,13 +4,15 @@ import { googleLogout } from "@react-oauth/google";
 
 import { User } from "@/models/user";
 
+import { localStorageKeys } from "@/constants/storageKeys";
+
 import { useLocalStorage } from "./useLocalStorage";
 
 const ONE_DAY_IN_SECONDS = 1000 * 60 * 60 * 24;
 
 export function useCurrentUser() {
   const [user, setUser] = useLocalStorage<User | null>(
-    "user",
+    localStorageKeys.user,
     null,
     ONE_DAY_IN_SECONDS,
   );
@@ -22,5 +24,5 @@ export function useCurrentUser() {
     }
   }, [setUser]);
 
-  return { user, setUser, handleLogout };
+  return { user, setUser, handleLogout } as const;
 }
