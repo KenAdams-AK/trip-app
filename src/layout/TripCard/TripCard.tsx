@@ -36,7 +36,7 @@ function TripCard({ trip, isSelected, setSelectedTrip }: TripCardProps) {
 
 function areEqual(prevProps: TripCardProps, nextProps: TripCardProps): boolean {
   return (
-    prevProps.trip === nextProps.trip &&
+    prevProps.trip.id === nextProps.trip.id &&
     prevProps.isSelected === nextProps.isSelected
   );
 }
