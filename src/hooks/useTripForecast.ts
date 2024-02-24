@@ -20,7 +20,7 @@ const fetchTripForecast = ({
 
 export function useTripForecast(tripData: Trip) {
   return useQuery({
-    queryKey: ["tripForecast", tripData.destination.city],
+    queryKey: ["tripForecast", tripData.destination.city, tripData.id],
     queryFn: () => fetchTripForecast(tripData),
     select: ({ address, days }) => {
       return {
