@@ -3,15 +3,8 @@
 .form-error {
   color: #959595;
   font-size: 12px;
+  height: 1.25rem;
 
-  span {
-    display: inline-block;
-    width: 0.625rem;
-    height: 0.625rem;
-    border-radius: 100%;
-    border: 3.5px solid #959595;
-    margin-right: 0.625rem;
-  }
   &--invalid {
     color: $clr-red-primary;
     span {
