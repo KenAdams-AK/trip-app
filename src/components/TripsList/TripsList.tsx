@@ -50,27 +50,21 @@ export function TripsList({
   return (
     <div className="trips-list">
       <ScrollButton
-        type="left"
         isHidden={!hasHorizontalScroll}
         handleScroll={scroll}
         scrollOffset={SCROLL_OFFSET}
-      />
-      <div className="trips-list__list" ref={listRef}>
-        {trips.map((trip) => (
-          <MemoizedTripCard
-            key={trip.id}
-            trip={trip}
-            isSelected={trip.id === selectedTrip.id}
-            setSelectedTrip={setSelectedTrip}
-          />
-        ))}
-      </div>
-      <ScrollButton
-        type="right"
-        isHidden={!hasHorizontalScroll}
-        handleScroll={scroll}
-        scrollOffset={SCROLL_OFFSET}
-      />
+      >
+        <div className="trips-list__list" ref={listRef}>
+          {trips.map((trip) => (
+            <MemoizedTripCard
+              key={trip.id}
+              trip={trip}
+              isSelected={trip.id === selectedTrip.id}
+              setSelectedTrip={setSelectedTrip}
+            />
+          ))}
+        </div>
+      </ScrollButton>
 
       <button
         className="trips-list__add-button"

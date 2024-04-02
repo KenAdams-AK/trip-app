@@ -1,31 +1,41 @@
+import { ReactNode } from "react";
+
 import "./ScrollButton.scss";
 
 type ScrollButtonProps = {
-  type: "left" | "right";
   isHidden: boolean;
   scrollOffset: number;
   handleScroll: (scrollOffset: number) => void;
+  children: ReactNode;
 };
 
 export function ScrollButton({
-  type,
   isHidden,
   scrollOffset,
   handleScroll,
+  children,
 }: ScrollButtonProps) {
   if (isHidden) {
-    return null;
+    return children;
   }
 
   return (
-    <button
-      className="scroll-button"
-      type="button"
-      onClick={() =>
-        handleScroll(type === "left" ? -scrollOffset : scrollOffset)
-      }
-    >
-      {type === "left" ? "<" : ">"}
-    </button>
+    <>
+      <button
+        className="scroll-button"
+        type="button"
+        onClick={() => handleScroll(-scrollOffset)}
+      >
+        &#x3c;
+      </button>
+      {children}
+      <button
+        className="scroll-button"
+        type="button"
+        onClick={() => handleScroll(scrollOffset)}
+      >
+        &#x3e;
+      </button>
+    </>
   );
 }
